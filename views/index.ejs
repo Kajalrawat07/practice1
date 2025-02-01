@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"href="/styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Find something to do.</h1>
+
+        <form action="/" class="form" method="POST">
+            <select name="type">
+                <option value="" data-display="select">Random</option>
+                <option value="charity">Charity</option>
+                <option value="recreational">Recreational</option>
+                <option value="relaxation">Relaxation</option>
+                <option value="busywork">Busywork</option>
+                <option value="social">Social</option>
+                <option value="diy">Diy</option>
+                <option value="music">Music</option>
+            </select>
+            <select name="participants">
+                <option value="">Any people</option>
+                <option value="1">1</option>
+                <option value="2">2</option>    
+                <option value="3">3</option>   
+                <option value="4">4</option>    
+            </select>
+            <button type="submit"class="form-submit">Go &rarr;</button>
+        </form>
+
+        <section class="cards">
+            <% if(locals.data) { %>
+                <article class="card-item">
+                    <h2 class="card-activity">
+                        <%= data.activity %>
+                    </h2>
+                    <div class="card-info">
+                        <span>
+                        <%= data.type %>
+                    </span>
+                    participants: <%= data.participants %>
+                    <span> 
+                       
+                    </div>
+                </article>    
+            <% } %>
+            <% if (locals.error){ %> 
+                <div class="tag-error">
+                    <%= error %>
+                </div>
+                <% } %>
+        </section>
+    </div>
+</body>
+</html>
